@@ -2,7 +2,7 @@ Summary:	NetBSD make utility
 Summary(pl.UTF-8):	Narzędzie make z NetBSD
 Name:		bmake
 Version:	20250308
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Tools
 Source0:	https://ftp.netbsd.org/pub/NetBSD/misc/sjg/%{name}-%{version}.tar.gz
@@ -40,14 +40,15 @@ Ten pakiet zawiera port narzędzia make BSD (z NetBSD).
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	STRIP_FLAG=
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog LICENSE README PSD.doc/tutorial.ms
+%doc ChangeLog LICENSE README PSD.doc/tutorial.ms mk/mk-files.txt
 %attr(755,root,root) %{_bindir}/bmake
 %dir %{_datadir}/mk
 %{_datadir}/mk/sys
